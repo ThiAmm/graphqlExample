@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+        webapp:
+                build: 
+                        context: webapp
+                ports: 
+                        - "4000:8080"
+                volumes:
+                        - maven-repository:/root/.m2
+
+volumes:
+        maven-repository:
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.19.199.1/24
+
